@@ -19,12 +19,14 @@ const defaultElements = [
  * or create a property key, then reference it in the node you want to use by specifying the type
  * @returns
  */
-export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => (
-    <ReactFlow
-        nodeTypes={{ DecisionNode }}
-        elements={elements}
-        onElementClick={(e, el) => {
-            console.log(`element was clicked: ${el.id}`, el, e);
-        }}
-    />
-);
+export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
+    return (
+        <ReactFlow
+            nodeTypes={{ DecisionNode }}
+            elements={elements}
+            onElementClick={(e, el) => {
+                console.log(`element was clicked: ${el.id}`, el, e);
+            }}
+        />
+    );
+};

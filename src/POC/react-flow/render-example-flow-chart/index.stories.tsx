@@ -5,7 +5,6 @@ import { BasicFlow } from ".";
 
 export default {
     title: "POCs/React Flow",
-    component: BasicFlow,
     argTypes: {
         width: { control: "number", defaultValue: 500 },
         height: { control: "number", defaultValue: 200 },
@@ -39,7 +38,7 @@ ProcessAndDecisions.args = {
     width: 700,
     elements: [
         {
-            id: "1",
+            id: "_1",
             data: {
                 label: (
                     <div>
@@ -61,7 +60,7 @@ ProcessAndDecisions.args = {
             },
         },
         {
-            id: "2",
+            id: "_2",
             data: {
                 label: "{{firstName}} startsWith 'a' and {{age}} > 18",
             },
@@ -71,12 +70,12 @@ ProcessAndDecisions.args = {
         },
         {
             id: "e1-2",
-            source: "1",
-            target: "2",
+            source: "_1",
+            target: "_2",
             type: "smoothstep",
         },
         {
-            id: "3",
+            id: "_3",
             data: {
                 label: (
                     <div>
@@ -94,14 +93,14 @@ ProcessAndDecisions.args = {
         },
         {
             id: "e2-3",
-            source: "2",
-            target: "3",
+            source: "_2",
+            target: "_3",
             sourceHandle: "yes",
             type: "smoothstep",
             animated: true
         },
         {
-            id: "4",
+            id: "_4",
             data: {
                 label: (
                     <div>
@@ -119,13 +118,13 @@ ProcessAndDecisions.args = {
         },
         {
             id: "e2-4",
-            source: "2",
-            target: "4",
+            source: "_2",
+            target: "_4",
             sourceHandle: "no",
             type: "smoothstep",
         },
         {
-            id: "5",
+            id: "_5",
             data: {
                 label: (
                     <div>
@@ -148,14 +147,14 @@ ProcessAndDecisions.args = {
         },
         {
             id: "e3-5",
-            source: "3",
-            target: "5",
+            source: "_3",
+            target: "_5",
             type: "smoothstep",
         },
         {
             id: "e4-5",
-            source: "4",
-            target: "5",
+            source: "_4",
+            target: "_5",
             type: "smoothstep",
         },
     ],
