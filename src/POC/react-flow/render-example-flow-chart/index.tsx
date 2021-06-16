@@ -20,5 +20,11 @@ const defaultElements = [
  * @returns
  */
 export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => (
-    <ReactFlow nodeTypes={{ DecisionNode }} elements={elements} />
+    <ReactFlow
+        nodeTypes={{ DecisionNode }}
+        elements={elements}
+        onElementClick={(e, el) => {
+            console.log(`element was clicked: ${el.id}`, el, e);
+        }}
+    />
 );

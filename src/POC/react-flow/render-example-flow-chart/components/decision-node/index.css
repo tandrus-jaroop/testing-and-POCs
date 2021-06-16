@@ -31,6 +31,6 @@
     width: calc(
         100% - 22px
     ); /* -22px is 2 * 10px gap on either side - 2px border on either side */
-    border: 1px solid orange;
+    border: 1px solid blue;
     transform: rotateX(45deg) rotateZ(45deg);
 }
