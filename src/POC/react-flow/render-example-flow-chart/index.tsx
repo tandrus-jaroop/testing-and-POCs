@@ -1,9 +1,10 @@
 import React from "react";
 import ReactFlow from "react-flow-renderer";
 import { BasicFlowProps } from "./models";
+import { DecisionNode } from "./components/decision-node";
 
 const defaultElements = [
-    { id: "1", data: { label: "Node 1" }, position: { x: 250, y: 5 } },
+    { id: "1", data: { label: "Something new" }, position: { x: 250, y: 5 } },
     // you can also pass a React component as a label
     {
         id: "2",
@@ -17,5 +18,5 @@ const defaultElements = [
  * @returns
  */
 export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => (
-    <ReactFlow elements={elements} />
+    <ReactFlow nodeTypes={{ DecisionNode }} elements={elements} />
 );

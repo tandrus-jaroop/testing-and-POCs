@@ -63,11 +63,100 @@ ProcessAndDecisions.args = {
         {
             id: "2",
             data: {
-                label: "I am a decision",
+                label: "{{firstName}} startsWith 'a' and {{age}} > 18",
             },
+            type: "DecisionNode",
             position: { x: 250, y: 200 },
-            style: {
+            style: {},
+        },
+        {
+            id: "e1-2",
+            source: "1",
+            target: "2",
+            type: "smoothstep",
+        },
+        {
+            id: "3",
+            data: {
+                label: (
+                    <div>
+                        <ul
+                            style={{ listStyle: "none", margin: 0, padding: 0 }}
+                        >
+                            <li>Name: Contact for Minor</li>
+                            <li>Type: Contact</li>
+                            <li>Intro: "Lorum Ipsum..."</li>
+                        </ul>
+                    </div>
+                ),
             },
+            position: { x: 250, y: 500 },
+        },
+        {
+            id: "e2-3",
+            source: "2",
+            target: "3",
+            sourceHandle: "yes",
+            type: "smoothstep",
+            animated: true
+        },
+        {
+            id: "4",
+            data: {
+                label: (
+                    <div>
+                        <ul
+                            style={{ listStyle: "none", margin: 0, padding: 0 }}
+                        >
+                            <li>Name: Contact for Adult</li>
+                            <li>Type: Contact</li>
+                            <li>Intro: "Lorum Ipsum..."</li>
+                        </ul>
+                    </div>
+                ),
+            },
+            position: { x: 600, y: 500 },
+        },
+        {
+            id: "e2-4",
+            source: "2",
+            target: "4",
+            sourceHandle: "no",
+            type: "smoothstep",
+        },
+        {
+            id: "5",
+            data: {
+                label: (
+                    <div>
+                        <ul
+                            style={{ listStyle: "none", margin: 0, padding: 0 }}
+                        >
+                            <li>Name: Quotes</li>
+                            <li>Type: Quote</li>
+                            <li>Intro: "This is a quote for you!"</li>
+                        </ul>
+                    </div>
+                ),
+            },
+            position: { x: 250, y: 700 },
+            style: {
+                borderColor: "red",
+                backgroundColor: "pink",
+                borderRadius: "50px",
+            },
+        },
+        {
+            id: "e3-5",
+            source: "3",
+            target: "5",
+            type: "smoothstep",
+        },
+        {
+            id: "e4-5",
+            source: "4",
+            target: "5",
+            type: "smoothstep",
         },
     ],
 };
