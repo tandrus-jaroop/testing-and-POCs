@@ -14,7 +14,9 @@ const defaultElements = [
     { id: "e1-2", source: "1", target: "2", animated: true },
 ];
 /**
- * react-flow requires it's parent to have a height and width in order to render correctly
+ * -react-flow requires it's parent to have a height and width in order to render correctly
+ * -nodeTypes allow you to add custom nodes, to add them just use the name of the component
+ * or create a property key, then reference it in the node you want to use by specifying the type
  * @returns
  */
 export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => (

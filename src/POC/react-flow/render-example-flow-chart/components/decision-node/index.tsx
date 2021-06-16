@@ -3,6 +3,11 @@ import "./index.css";
 import { Handle, Position } from "react-flow-renderer";
 import { DecisionNodeProps } from "./models";
 
+/**
+ * -Handles are the edge entry and exit points, you can specify an id to make sure that the edges map to
+ * the correct sections
+ * @returns 
+ */
 export const DecisionNode = ({ data: { label } }: DecisionNodeProps) => {
     return (
         <div className="container">

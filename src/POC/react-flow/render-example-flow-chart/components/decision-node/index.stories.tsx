@@ -5,10 +5,10 @@ import ReactFlow from "react-flow-renderer";
 import { CustomProps } from "./models";
 
 export default {
-    title: "POCs/React Flow/Components/Decision Node",
+    title: "POCs/React Flow/Custom Nodes/Decision Node",
     component: DecisionNode,
     argTypes: {
-        label: { control: "text", defaultValue: "This is the default value" },
+        label: { control: "text", defaultValue: "This is the default value, and it is really really really really long" },
     },
 } as Meta;
 
