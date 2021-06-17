@@ -27,6 +27,10 @@ export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
             onElementClick={(e, el) => {
                 console.log(`element was clicked: ${el.id}`, el, e);
             }}
+            onNodeDoubleClick={(e, el) => {
+                console.log(`element was double-clicked: ${el.id}`, el, e);
+            }}
+            nodesConnectable={false}
         />
     );
 };
