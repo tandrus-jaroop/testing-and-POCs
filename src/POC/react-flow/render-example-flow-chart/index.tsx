@@ -1,5 +1,5 @@
 import React from "react";
-import ReactFlow from "react-flow-renderer";
+import ReactFlow, { Background } from "react-flow-renderer";
 import { BasicFlowProps } from "./models";
 import { DecisionNode } from "./components/decision-node";
 
@@ -31,6 +31,9 @@ export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
                 console.log(`element was double-clicked: ${el.id}`, el, e);
             }}
             nodesConnectable={false}
-        />
+            snapToGrid={true}
+        >
+            <Background></Background>
+        </ReactFlow>
     );
 };
