@@ -2,6 +2,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import { BasicFlowProps } from "./models";
 import { BasicFlow } from ".";
+import { FlowElement } from "react-flow-renderer";
 
 export default {
     title: "POCs/React Flow",
@@ -31,6 +32,26 @@ const Template: Story<BasicFlowStory> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+const createStartNode = (id:string,nodeType:string,name:string):FlowElement => {
+    return {
+        id,
+        data: {
+            label: (
+                <div>
+                   <p>{nodeType}</p>
+                   <p>What is the color of the sky?</p>
+                </div>
+            ),
+        },
+        position: { x: 250, y: 5 },
+        style: {
+            borderColor: "green",
+            backgroundColor: "lightgreen",
+            borderRadius: "50px",
+        },
+    }
+}
 
 export const ProcessAndDecisions = Template.bind({});
 ProcessAndDecisions.args = {
@@ -97,7 +118,7 @@ ProcessAndDecisions.args = {
             target: "_3",
             sourceHandle: "yes",
             type: "smoothstep",
-            animated: true
+            animated: true,
         },
         {
             id: "_4",
@@ -155,6 +176,77 @@ ProcessAndDecisions.args = {
             id: "e4-5",
             source: "_4",
             target: "_5",
+            type: "smoothstep",
+        },
+    ],
+};
+
+const uniqueId = (storyName: string) => (id: string | number) =>
+    `${storyName}__${id}`;
+const story3Id = uniqueId("AutoSpacing");
+
+export const AutoSpacing = Template.bind({});
+AutoSpacing.args = {
+    height: 700,
+    width: 700,
+    elements: [
+        {
+            id: story3Id(1),
+            data: {
+                label: story3Id(1),
+            },
+            position: { x: 0, y: 0 },
+        },
+        {
+            id: story3Id(2),
+            data: {
+                label: story3Id(2),
+            },
+            position: { x: 0, y: 100 },
+        },
+        {
+            id: story3Id(3),
+            data: {
+                label: story3Id(3),
+            },
+            position: { x: 200, y: 200 },
+        },
+        {
+            id: story3Id(4),
+            data: {
+                label: story3Id(4),
+            },
+            position: { x: 0, y: 200 },
+        },
+        {
+            id: story3Id(5),
+            data: {
+                label: story3Id(5),
+            },
+            position: { x: 200, y: 100 },
+        },
+        {
+            id: story3Id('1->2'),
+            source: story3Id(1),
+            target: story3Id(2),
+            type: "smoothstep",
+        },
+        {
+            id: story3Id('1->5'),
+            source: story3Id(1),
+            target: story3Id(5),
+            type: "smoothstep",
+        },
+        {
+            id: story3Id('5->3'),
+            source: story3Id(5),
+            target: story3Id(3),
+            type: "smoothstep",
+        },
+        {
+            id: story3Id('2->4'),
+            source: story3Id(2),
+            target: story3Id(4),
             type: "smoothstep",
         },
     ],
