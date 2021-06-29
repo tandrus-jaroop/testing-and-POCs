@@ -33,26 +33,6 @@ const Template: Story<BasicFlowStory> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {};
 
-const createStartNode = (id:string,nodeType:string,name:string):FlowElement => {
-    return {
-        id,
-        data: {
-            label: (
-                <div>
-                   <p>{nodeType}</p>
-                   <p>What is the color of the sky?</p>
-                </div>
-            ),
-        },
-        position: { x: 250, y: 5 },
-        style: {
-            borderColor: "green",
-            backgroundColor: "lightgreen",
-            borderRadius: "50px",
-        },
-    }
-}
-
 export const ProcessAndDecisions = Template.bind({});
 ProcessAndDecisions.args = {
     height: 700,

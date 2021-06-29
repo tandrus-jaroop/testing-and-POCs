@@ -1,7 +1,13 @@
 import React from "react";
-import ReactFlow, { Background } from "react-flow-renderer";
+import ReactFlow, {
+    Background,
+    Elements,
+    isNode,
+    Node,
+} from "react-flow-renderer";
 import { BasicFlowProps } from "./models";
 import { DecisionNode } from "./components/decision-node";
+import dagre from "dagre";
 
 const defaultElements = [
     { id: "1", data: { label: "Something new" }, position: { x: 250, y: 5 } },
@@ -20,10 +26,48 @@ const defaultElements = [
  * @returns
  */
 export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
+    const dagreGraph = new dagre.graphlib.Graph();
+    dagreGraph.setDefaultEdgeLabel(() => ({}));
+    dagreGraph.setGraph({ rankdir: "TB" });
+
+    const getLayoutedElements = (elements: Elements): Elements => {
+        const getWidth = (n: Node) => (n.type === "DecisionNode" ? 280 : 170);
+        const getHeight = (n: Node) => (n.type === "DecisionNode" ? 220 : 86);
+        elements.forEach((el) => {
+            if (isNode(el)) {
+                const w = getWidth(el);
+                const h = getHeight(el)
+                dagreGraph.setNode(el.id, {
+                    width: w,
+                    height: h,
+                });
+            } else {
+                dagreGraph.setEdge(el.source, el.target);
+            }
+        });
+        console.log(dagreGraph);
+        dagre.layout(dagreGraph);
+
+        return elements.map((el) => {
+            if (isNode(el)) {
+                const nodeWithPosition = dagreGraph.node(el.id);
+                el.position = {
+                    x:
+                        nodeWithPosition.x -
+                        getWidth(el) / 2 +
+                        Math.random() / 1000,
+                    y: nodeWithPosition.y - getHeight(el) / 2,
+                };
+            }
+
+            return el;
+        });
+    };
+
     return (
         <ReactFlow
             nodeTypes={{ DecisionNode }}
-            elements={elements}
+            elements={getLayoutedElements(elements)}
             onElementClick={(e, el) => {
                 console.log(`element was clicked: ${el.id}`, el, e);
             }}

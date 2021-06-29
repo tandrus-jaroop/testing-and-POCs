@@ -65,7 +65,9 @@
     "@storybook/node-logger": "^6.2.9",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.2.9",
+    "@types/dagre": "^0.7.44",
     "babel-jest": "^27.0.5",
+    "dagre": "^0.8.5",
     "jest": "^27.0.5"
   }
 }
