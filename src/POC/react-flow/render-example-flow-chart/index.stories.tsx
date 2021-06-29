@@ -70,6 +70,15 @@ ProcessAndDecisions.args = {
             style: {},
         },
         {
+            id: "_2.5",
+            data: {
+                label: "{{firstName}} startsWith 'a' and {{age}} > 18",
+            },
+            type: "DecisionNode",
+            position: { x: 250, y: 200 },
+            style: {},
+        },
+        {
             id: "e1-2",
             source: "_1",
             target: "_2",
@@ -206,25 +215,25 @@ AutoSpacing.args = {
             position: { x: 200, y: 100 },
         },
         {
-            id: story3Id('1->2'),
+            id: story3Id("1->2"),
             source: story3Id(1),
             target: story3Id(2),
             type: "smoothstep",
         },
         {
-            id: story3Id('1->5'),
+            id: story3Id("1->5"),
             source: story3Id(1),
             target: story3Id(5),
             type: "smoothstep",
         },
         {
-            id: story3Id('5->3'),
+            id: story3Id("5->3"),
             source: story3Id(5),
             target: story3Id(3),
             type: "smoothstep",
         },
         {
-            id: story3Id('2->4'),
+            id: story3Id("2->4"),
             source: story3Id(2),
             target: story3Id(4),
             type: "smoothstep",

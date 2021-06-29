@@ -32,11 +32,11 @@ export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
 
     const getLayoutedElements = (elements: Elements): Elements => {
         const getWidth = (n: Node) => (n.type === "DecisionNode" ? 280 : 170);
-        const getHeight = (n: Node) => (n.type === "DecisionNode" ? 220 : 86);
+        const getHeight = (n: Node) => (n.type === "DecisionNode" ? 220 : 170);
         elements.forEach((el) => {
             if (isNode(el)) {
                 const w = getWidth(el);
-                const h = getHeight(el)
+                const h = getHeight(el);
                 dagreGraph.setNode(el.id, {
                     width: w,
                     height: h,
@@ -52,11 +52,8 @@ export const BasicFlow = ({ elements = defaultElements }: BasicFlowProps) => {
             if (isNode(el)) {
                 const nodeWithPosition = dagreGraph.node(el.id);
                 el.position = {
-                    x:
-                        nodeWithPosition.x -
-                        getWidth(el) / 2 +
-                        Math.random() / 1000,
-                    y: nodeWithPosition.y - getHeight(el) / 2,
+                    x: nodeWithPosition.x - getWidth(el),
+                    y: nodeWithPosition.y - getHeight(el),
                 };
             }
 
